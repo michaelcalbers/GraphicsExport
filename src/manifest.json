@@ -1,4 +1,10 @@
 {
+  "name" : "Graphics Export",
+  "identifier" : "michaelcalbers.graphicsexport",
+  "version" : "0.0.2",
+  "description" : "Export graphics stuff.",
+  "authorEmail" : "michaelc.albers@gmail.com",
+  "author" : "Michael C Albers",
   "compatibleVersion": 3,
   "bundleVersion": 1,
   "commands": [
@@ -9,7 +15,7 @@
     }
   ],
   "menu": {
-    "title": "GraphicsExport",
+    "title": "Graphics Export",
     "items": [
       "my-command-identifier"
     ]
