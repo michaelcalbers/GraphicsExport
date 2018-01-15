@@ -1,4 +1,4 @@
 export default function(context) {
-	var sketch = context.api()
 	context.document.showMessage("Export Something!!!!!!")
+	var options = { "scales" : "1, 2, 3", "formats" : "png, svg, jpg" }
 }

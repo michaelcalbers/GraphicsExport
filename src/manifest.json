@@ -9,7 +9,7 @@
   "bundleVersion": 1,
   "commands": [
     {
-      "name": "my-command",
+      "name": "Export!",
       "identifier": "my-command-identifier",
       "script": "./my-command.js"
     }
