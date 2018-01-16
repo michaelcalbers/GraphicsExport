@@ -3,10 +3,14 @@ export default function(context) {
 
 	const selectedLayers = context.selection
 	const selectedCount = selectedLayers.length
+	document = context.document
 
 	if (selectedCount === 0) {
-		context.document.showMessage('No layers are selected.')
+		message = "No layers selected."
+	} else if  (selectedCount === 1) {
+		message = "1 layer selected."
 	} else {
-		context.document.showMessage(`${selectedCount} layers selected.`)
+		message = selectedCount + " layers selected."
 	}
+	document.showMessage(message);
 }
