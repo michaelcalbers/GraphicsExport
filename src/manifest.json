@@ -9,9 +9,10 @@
   "bundleVersion": 1,
   "commands": [
     {
+      "handler": "onRun",
       "name": "Export!",
-      "identifier": "my-command-identifier",
-      "script": "./my-command.js"
+      "script": "./my-command.js",
+      "identifier": "my-command-identifier"
     }
   ],
   "menu": {
