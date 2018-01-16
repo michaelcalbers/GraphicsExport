@@ -12,5 +12,6 @@ export default function(context) {
 	} else {
 		message = selectedCount + " layers selected."
 	}
-	document.showMessage(message);
+	document.showMessage(message); // on Screen
+	log(message); // to log/Console
 }
