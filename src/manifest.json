@@ -11,14 +11,14 @@
     {
       "handler": "onRun",
       "name": "Export!",
-      "script": "./my-command.js",
-      "identifier": "my-command-identifier"
+      "script": "./graphics-export.js",
+      "identifier": "my-graphics-export"
     }
   ],
   "menu": {
     "title": "Graphics Export",
     "items": [
-      "my-command-identifier"
+      "my-graphics-export"
     ]
   }
 }
