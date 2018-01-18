@@ -1,7 +1,7 @@
 {
   "name" : "Graphics Export",
   "identifier" : "michaelcalbers.graphicsexport",
-  "version" : "0.0.2",
+  "version" : "0.0.4",
   "description" : "Export graphics stuff.",
   "authorEmail" : "michaelc.albers@gmail.com",
   "author" : "Michael C Albers",
