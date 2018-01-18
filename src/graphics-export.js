@@ -12,7 +12,9 @@ export default function(context) {
 
 	if (selectedLayerCount > 0) { // some layers are selected
 		// We can specify a lot of different options for the exporting.
-	    var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
+	    //var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
+	    var exportOptions_PNG = { "scales" : "1, 2, 3", "formats" : "png" }
+	    var exportOptions_SVG = { "formats" : "svg" }
 		// Iterate over each layer in the selection
 	    sketch.selectedDocument.selectedLayers.iterate(function(layer) {
 	    	if (layer.isPage) { // if the layer is an Page (but I'm not sure this would ever evaluate to be True)
@@ -23,10 +25,10 @@ export default function(context) {
 				log("     " + "Cound not export the Symbol " + layer.name); // to log/Console
 			} else { // looks good; let's try to export this thing
 				log("     " + "Exporting " + layer.name); // to log/Console
-    			layer.export(options)
+    			layer.export(exportOptions_PNG)
+    			layer.export(exportOptions_SVG)
 			}
     	})
-
 	} else {
 		var message = "No layers selected."
 		document.showMessage(message); // on Screen
