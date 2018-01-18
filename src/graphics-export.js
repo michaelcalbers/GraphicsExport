@@ -15,8 +15,16 @@ export default function(context) {
 	    var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
 		// Iterate over each layer in the selection
 	    sketch.selectedDocument.selectedLayers.iterate(function(layer) {
-    		layer.export(options)
-			log("     " + layer.name); // to log/Console
+	    	if (layer.isPage) { // if the layer is an Page (but I'm not sure this would ever evaluate to be True)
+				log("     " + "Cound not export the Page " + layer.name); // to log/Console
+	    	} else if (layer.isText) { // if the layer is only text
+				log("     " + "Cound not export the Text layer " + layer.name); // to log/Console
+	    	} else if (layer.isSymbol) { // if the layer is a Symbol
+				log("     " + "Cound not export the Symbol " + layer.name); // to log/Console
+			} else { // looks good; let's try to export this thing
+				log("     " + "Exporting " + layer.name); // to log/Console
+    			layer.export(options)
+			}
     	})
 
 	} else {
