@@ -1,20 +1,23 @@
 export default function(context) {
-	log("Starting")
+	log("Starting");
 	
 	// Fetch the root Sketch object
-    var sketch = context.api()
+    var sketch = context.api();
     // reference the Sketch Document
-	var document = context.document
+	var document = context.document;
 	// get the list of selected layers
-	var selectedLayers = context.selection
+	var selectedLayers = context.selection;
 	// get the # of selected layers
-	var selectedLayerCount = selectedLayers.length
+	var selectedLayerCount = selectedLayers.length;
+	// create a variable to hold how many icons were exported
+	var iconCount = 0;
+
 
 	if (selectedLayerCount > 0) { // some layers are selected
 		// We can specify a lot of different options for the exporting.
 	    //var options = { "scales" : "1, 2, 3", "formats" : "png, jpg" }
-	    var exportOptions_PNG = { "scales" : "1, 2, 3", "formats" : "png" }
-	    var exportOptions_SVG = { "formats" : "svg" }
+	    var exportOptions_PNG = { "scales" : "1, 2, 3", "formats" : "png" };
+	    var exportOptions_SVG = { "formats" : "svg" };
 		// Iterate over each layer in the selection
 	    sketch.selectedDocument.selectedLayers.iterate(function(layer) {
 	    	if (layer.isPage) { // if the layer is an Page (but I'm not sure this would ever evaluate to be True)
@@ -24,28 +27,18 @@ export default function(context) {
 	    	} else if (layer.isSymbol) { // if the layer is a Symbol
 				log("     " + "Cound not export the Symbol " + layer.name); // to log/Console
 			} else { // looks good; let's try to export this thing
+    			layer.export(exportOptions_PNG);
+    			layer.export(exportOptions_SVG);
+		        // increment the icon count (by 4 for the 4 different files exported)
+        		iconCount = iconCount + 4;
 				log("     " + "Exporting " + layer.name); // to log/Console
-    			layer.export(exportOptions_PNG)
-    			layer.export(exportOptions_SVG)
 			}
     	})
 	} else {
-		var message = "No layers selected."
+		var message = "No layers selected.";
 		document.showMessage(message); // on Screen
 		log("     " + message); // to log/Console
 	}
-
-
-
-//		if (selectedLayerCount === 0) {
-//			message = "     No layers selected."
-//		} else if (selectedLayerCount === 1) {
-//			message = "     1 layer selected."
-//		} else {
-//			message = "     " + selectedCount + " layers selected."
-//		}
-//		document.showMessage(message); // on Screen
-//		log(message); // to log/Console
-
-	log("Ending")
+	log(iconCount + " icons exported.");
+	log("Ending");
 }
