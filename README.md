@@ -4,6 +4,8 @@ The 'GraphicsExport' plugin expects that the user selects the Sketch layers to e
 Not all types of layers can be exported; the plugin is a bit ideosyncratic about what types can be exported. The Sketch APIs are not real clear on which layers will successfully execute a 'layer.export()' function call. I'm working on it...
 When a layer does export correctly, 3 PNG files and an SVG file are placed in the user's '.../Documents/Sketch Exports' folder.
 
+Partially based on Bohemian Coding's Exporting Examples ([web](http://developer.sketchapp.com/examples/plugins/exporting/) | [git](https://github.com/BohemianCoding/plugins.examples.exporter) ).
+
 _This plugin was created using `skpm`. For a detailed explanation on how things work, checkout the [skpm Readme](https://github.com/skpm/skpm/blob/master/README.md)._
 
 ## Usage
